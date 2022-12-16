@@ -2,7 +2,6 @@ from app import db
 import sqlalchemy
 
 
-
 class Base(db.Model):
     __abstract__ = True
 

@@ -20,9 +20,10 @@ def create_app(environment=None):
     app.register_blueprint(files_api)
     app.register_blueprint(time_api)
     
-    Bootstrap(app)
-    
     db.init_app(app)
     migrate.init_app(app, db)
+    
+    Bootstrap(app)
+    
     
     return app

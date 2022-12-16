@@ -9,14 +9,15 @@ class BaseConfig:
 
 class Production(BaseConfig):
     SQLALCHEMY_DATABASE_URI = "sqlite:////" + os.path.join(
-        basedir, "tmp", "artdb.db"
+        basedir, "tmp", "app.db"
     )
 
 
 class Development(BaseConfig):
     SQLALCHEMY_DATABASE_URI = "sqlite:////" + os.path.join(
-        basedir, "tmp", "artdb.dev.db"
+        basedir, "tmp", "app.dev.db"
     )
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 
 class Test(BaseConfig):
