@@ -13,6 +13,8 @@ class User(Base):
     pieces = db.relationship(
     "Piece", backref="author", lazy=True, cascade="all, delete-orphan"
     )
+    
+    # add association table for user+user_group
 
 class UserSchema(SQLAlchemyAutoSchema):
     class Meta:

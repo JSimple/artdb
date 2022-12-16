@@ -4,7 +4,7 @@ from app import db
 from models.base import Base
 
 class Title(Base):
-    __tablename__= "versions"
+    __tablename__= "titles"
     
     text = db.Column(db.String(500), nullable=False)
     

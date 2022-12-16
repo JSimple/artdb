@@ -19,6 +19,10 @@ class Piece(Base):
         "Version", backref="piece", lazy=True, cascade="all, delete-orphan"
     )
     
+    suggested_titles = db.relationship(
+    "Title", backref="piece", lazy=True, cascade="all, delete-orphan"
+    )
+    
 
 class PieceSchema(SQLAlchemyAutoSchema):
     class Meta:
