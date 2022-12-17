@@ -4,6 +4,9 @@ s3/admin_credentials.csv
 #enviornment files
 .flaskenv
 
+#tmp files
+tmp
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

@@ -2,6 +2,7 @@ from flask import render_template
 from flask import Blueprint
 from boto3 import resource, client
 from dotenv import dotenv_values
+from models import User
 
 config = dotenv_values(".flaskenv")
 aws_key_id = config["AWS_KEY"]
@@ -23,3 +24,11 @@ def get_files():
     summaries = bucket.objects.all()
     
     return render_template('files.html', bucket=bucket,files=summaries)
+
+# @files_api.route('/files', methods=["POST"])
+# def post_file():
+#     s3_resource = resource('s3')
+#     bucket = s3_resource.Bucket(s3_bucket)
+#     summaries = bucket.objects.all()
+    
+#     return render_template('files.html', bucket=bucket,files=summaries)

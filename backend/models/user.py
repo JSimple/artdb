@@ -1,7 +1,7 @@
 from marshmallow_sqlalchemy import SQLAlchemyAutoSchema
 
-from app import db
-from backend.models.base import create_association_table
+from config import db
+from models.base import create_association_table
 from models.base import Base
 
 users_groups = create_association_table(
@@ -22,12 +22,12 @@ class User(Base):
     "Piece", backref="author", lazy=True, cascade="all, delete-orphan"
     )
     
-    pieces = db.relationship(secondary=users_groups)
+    groups = db.relationship("Group",secondary=users_groups)
 
 
     
-class UserSchema(SQLAlchemyAutoSchema):
-    class Meta:
-        model = User
-        exclude = ("pieces")
-        load_instance = True
+# class UserSchema(SQLAlchemyAutoSchema):
+#     class Meta:
+#         model = User
+#         exclude = ("pieces",)
+#         load_instance = True

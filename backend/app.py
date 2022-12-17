@@ -3,12 +3,10 @@ from flask_bootstrap import Bootstrap
 from api.files import files_api
 from api.time import time_api
 from dotenv import dotenv_values
-from flask_migrate import Migrate
-from flask_sqlalchemy import SQLAlchemy
+from config import db, migrate
 
 config = dotenv_values(".flaskenv")
-db = SQLAlchemy()
-migrate = Migrate()
+
 
 def create_app(environment=None):
     if not environment:
